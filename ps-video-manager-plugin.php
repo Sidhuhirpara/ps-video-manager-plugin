@@ -23,11 +23,13 @@ define( 'PSVM_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
  * Include required files.
  */
 require_once PSVM_PLUGIN_DIR . 'includes/class-psvm-post-type.php';
+require_once PSVM_PLUGIN_DIR . 'includes/class-psvm-taxonomy.php';
 
 /**
  * Initialize plugin.
  */
 function psvm_init() {
 	new PSVM_Post_Type();
+	new PSVM_Taxonomy();
 }
 add_action( 'plugins_loaded', 'psvm_init' );

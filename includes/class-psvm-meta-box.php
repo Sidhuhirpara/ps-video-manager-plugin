@@ -99,6 +99,7 @@ private function is_valid_youtube_url( $url ) {
 	$allowed_hosts = array(
 		'www.youtube.com',
 		'youtube.com',
+        'm.youtube.com',
 		'youtu.be',
 	);
 

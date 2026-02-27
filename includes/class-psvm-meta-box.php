@@ -61,26 +61,47 @@ class PSVM_Meta_Box {
 	 */
 	public function save_meta_box( $post_id ) {
 
-		if ( ! isset( $_POST['psvm_video_url_nonce'] ) ) {
-			return;
-		}
+	if ( ! isset( $_POST['psvm_video_url_nonce'] ) ) {
+		return;
+	}
 
-		if ( ! wp_verify_nonce( $_POST['psvm_video_url_nonce'], 'psvm_save_video_url' ) ) {
-			return;
-		}
+	if ( ! wp_verify_nonce( $_POST['psvm_video_url_nonce'], 'psvm_save_video_url' ) ) {
+		return;
+	}
 
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-			return;
-		}
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
 
-		if ( ! current_user_can( 'edit_post', $post_id ) ) {
-			return;
-		}
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
 
-		if ( isset( $_POST['psvm_video_url_field'] ) ) {
+	if ( isset( $_POST['psvm_video_url_field'] ) ) {
 
-			$sanitized = esc_url_raw( $_POST['psvm_video_url_field'] );
-			update_post_meta( $post_id, '_psvm_video_url', $sanitized );
+		$url = esc_url_raw( $_POST['psvm_video_url_field'] );
+
+		// Validate YouTube URL
+		if ( $this->is_valid_youtube_url( $url ) ) {
+			update_post_meta( $post_id, '_psvm_video_url', $url );
 		}
 	}
+}
+
+private function is_valid_youtube_url( $url ) {
+
+	if ( empty( $url ) ) {
+		return false;
+	}
+
+	$host = parse_url( $url, PHP_URL_HOST );
+
+	$allowed_hosts = array(
+		'www.youtube.com',
+		'youtube.com',
+		'youtu.be',
+	);
+
+	return in_array( $host, $allowed_hosts, true );
+}
 }

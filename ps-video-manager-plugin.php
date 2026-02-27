@@ -26,6 +26,7 @@ require_once PSVM_PLUGIN_DIR . 'includes/class-psvm-post-type.php';
 require_once PSVM_PLUGIN_DIR . 'includes/class-psvm-taxonomy.php';
 require_once PSVM_PLUGIN_DIR . 'includes/class-psvm-meta-box.php';
 require_once PSVM_PLUGIN_DIR . 'includes/class-psvm-shortcode.php';
+require_once PSVM_PLUGIN_DIR . 'includes/class-psvm-assets.php';
 
 /**
  * Initialize plugin.
@@ -35,5 +36,6 @@ function psvm_init() {
 	new PSVM_Taxonomy();
 	new PSVM_Meta_Box();
 	new PSVM_Shortcode();
+	new PSVM_Assets();
 }
 add_action( 'plugins_loaded', 'psvm_init' );

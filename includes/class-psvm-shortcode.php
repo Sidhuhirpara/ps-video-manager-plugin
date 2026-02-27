@@ -52,7 +52,7 @@ class PSVM_Shortcode {
 		$args = array(
 			'post_type'      => 'psvm_video',
 			'post_status'    => 'publish',
-			'posts_per_page' => 6,
+			'posts_per_page' => 8,
 			'paged'          => $paged,
 			's'              => $search_query,
 		);

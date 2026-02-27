@@ -1,0 +1,118 @@
+.psvm-container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+/* Wrapper */
+.psvm-video-wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 24px;
+	margin-top: 24px;
+}
+
+/* Filter Bar */
+.psvm-filter-form {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+	align-items: center;
+	background: #ffffff;
+	padding: 16px 18px;
+	border-radius: 12px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+	margin-bottom: 28px;
+}
+
+.psvm-filter-form input[type="text"],
+.psvm-filter-form select {
+	padding: 8px 12px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	font-size: 14px;
+	min-width: 180px;
+}
+
+.psvm-filter-form button {
+	padding: 8px 16px;
+	background: #3b82f6;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background 0.2s ease;
+}
+
+.psvm-filter-form button:hover {
+	background: #2563eb;
+}
+
+/* Video Card */
+.psvm-video-item {
+	background: #ffffff;
+	border-radius: 14px;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+	padding: 14px;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	display: flex;
+	flex-direction: column;
+}
+
+.psvm-video-item:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* Embed Container */
+.psvm-video-embed {
+	position: relative;
+	width: 100%;
+	padding-top: 56.25%; /* 16:9 ratio */
+	border-radius: 12px;
+	overflow: hidden;
+	margin-bottom: 12px;
+	background: #f3f4f6;
+}
+
+.psvm-video-embed iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+/* Title */
+.psvm-video-item h3 {
+	font-size: 16px;
+	font-weight: 600;
+	margin: 0;
+	color: #111827;
+	line-height: 1.4;
+}
+
+/* Pagination */
+.psvm-pagination {
+	margin-top: 32px;
+	text-align: center;
+}
+
+.psvm-pagination a,
+.psvm-pagination span {
+	display: inline-block;
+	margin: 0 4px;
+	padding: 6px 12px;
+	border-radius: 6px;
+	background: #f3f4f6;
+	text-decoration: none;
+	color: #111827;
+	font-size: 14px;
+}
+
+.psvm-pagination .current {
+	background: #3b82f6;
+	color: #ffffff;
+}

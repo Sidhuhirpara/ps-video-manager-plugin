@@ -71,7 +71,8 @@ class PSVM_Shortcode {
 
 		if ( $query->have_posts() ) :
 
-			echo '<div class="psvm-video-wrapper">';
+			echo '<div class="psvm-container">';
+            echo '<div class="psvm-video-wrapper">';
 
 			while ( $query->have_posts() ) :
 				$query->the_post();
@@ -97,7 +98,8 @@ class PSVM_Shortcode {
 				<?php
 			endwhile;
 
-			echo '</div>';
+			echo '</div>'; // closes .psvm-video-wrapper
+            echo '</div>'; // closes .psvm-container
 
 			echo '<div class="psvm-pagination">';
 			echo paginate_links( array(
